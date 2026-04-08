@@ -1,0 +1,45 @@
+/* src/index.css */
+
+/*
+  CSS Reset Simples para garantir consistência entre navegadores.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Controle de "Zoom" e Fonte: Define a base de cálculo para toda a página.
+*/
+html {
+  /* 
+    Aumentamos o tamanho da fonte base. 
+    12px corresponde a 75% do tamanho padrão (16px), 
+    deixando a letra um pouco maior e mais legível.
+    Ajuste este valor se precisar (ex: 12.5px, 13px).
+  */
+  font-size: 13px; 
+}
+
+/*
+  Define a fonte padrão e a cor de fundo para toda a aplicação.
+*/
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  background-color: #f0f2f5;
+  color: #1c1e21;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+  Remove a decoração de texto padrão dos links.
+*/
+a {
+  text-decoration: none;
+  color: inherit;
+}

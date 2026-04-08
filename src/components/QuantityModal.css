@@ -1,0 +1,36 @@
+.quantity-modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); z-index: 10000;
+    display: flex; justify-content: center; align-items: center;
+    backdrop-filter: blur(2px);
+  }
+  
+  .quantity-modal-container {
+    background: white; width: 300px; border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    overflow: hidden; animation: popIn 0.2s ease-out;
+  }
+  
+  .quantity-header {
+    background: #005A8D; color: white; padding: 12px 15px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .quantity-header h3 { margin: 0; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+  .close-btn { background: none; border: none; color: white; cursor: pointer; font-size: 1.1rem; }
+  
+  .quantity-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .quantity-body label { font-weight: bold; color: #555; }
+  .quantity-body input {
+    font-size: 1.5rem; padding: 10px; text-align: center;
+    border: 2px solid #005A8D; border-radius: 6px; outline: none;
+  }
+  .quantity-body small { color: #888; text-align: center; font-size: 0.8rem; }
+  
+  .quantity-footer { padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: flex-end; }
+  .confirm-btn {
+    background: #28a745; color: white; border: none; padding: 10px 20px;
+    border-radius: 4px; font-weight: bold; cursor: pointer; width: 100%;
+  }
+  .confirm-btn:hover { background: #218838; }
+  
+  @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }

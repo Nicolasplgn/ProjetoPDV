@@ -1,0 +1,9 @@
+/* src/App.css */
+
+/*
+  Podemos usar esta classe para um container principal se precisarmos no futuro.
+  Por enquanto, não estamos usando, mas é bom ter o arquivo pronto.
+*/
+.App {
+  text-align: center;
+}

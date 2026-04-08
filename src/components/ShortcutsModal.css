@@ -1,0 +1,67 @@
+/* Fundo escuro atrás */
+.shortcuts-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 11000; /* Z-index bem alto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+/* Caixa Branca */
+.shortcuts-modal-container {
+  background-color: white;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInScale 0.2s ease-out;
+}
+
+/* Header */
+.shortcuts-header {
+  background-color: #f0f2f5;
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shortcuts-header h3 { margin: 0; display: flex; align-items: center; gap: 10px; color: #333; }
+.shortcuts-close-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666; }
+.shortcuts-close-btn:hover { color: #d00; }
+
+/* Corpo */
+.shortcuts-body { padding: 0; max-height: 60vh; overflow-y: auto; }
+
+/* Tabela */
+.shortcuts-table { width: 100%; border-collapse: collapse; }
+.shortcuts-table th { background-color: #f9f9f9; text-align: left; padding: 12px 20px; border-bottom: 2px solid #eee; color: #555; }
+.shortcuts-table td { padding: 10px 20px; border-bottom: 1px solid #eee; color: #333; }
+.shortcuts-table tr:last-child td { border-bottom: none; }
+
+.key-cell { text-align: center; }
+.key-badge {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-weight: bold;
+  color: #495057;
+  font-family: monospace;
+  font-size: 1.1em;
+  box-shadow: 0 2px 0 #ced4da;
+}
+
+/* Footer */
+.shortcuts-footer { padding: 10px 20px; background-color: #f9f9f9; text-align: center; color: #777; border-top: 1px solid #eee; }
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

@@ -1,0 +1,366 @@
+/* src/pages/PosPage.css */
+
+/* --- Container Geral --- */
+.pdv-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #dce1e6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+/* --- Header --- */
+.pdv-main-header {
+  height: 50px;
+  background-color: #005A8D;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.brand-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.network-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.network-status.online { background-color: #28a745; color: white; }
+.network-status.offline { background-color: #dc3545; color: white; }
+
+/* Grupo da Direita (Sync, User, Logout) */
+.header-right-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.header-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
+.header-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Estilo específico para Sair */
+.header-logout-btn {
+  border-color: rgba(255, 99, 71, 0.6);
+  background-color: rgba(255, 99, 71, 0.2);
+}
+.header-logout-btn:hover {
+  background-color: rgba(255, 99, 71, 0.5);
+  border-color: #ff6347;
+}
+
+/* Info do Usuário no Header */
+.header-user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(0,0,0,0.2);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.user-name { font-weight: bold; }
+
+/* Animação do ícone de sync */
+.spin-icon { animation: spin 1s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* --- MAIN: Split Layout --- */
+.pdv-split-layout {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  gap: 15px;
+  overflow: hidden;
+}
+
+/* ================= PAINEL ESQUERDO ================= */
+.left-panel {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f0f2f5;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  overflow-y: auto;
+}
+
+.product-display-banner {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border-left: 10px solid #005A8D;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-display-banner h2 { margin: 0; color: #333; font-size: 1.6rem; line-height: 1.2; }
+.sku-display { color: #666; font-size: 0.9rem; margin-top: 5px; }
+
+.product-image-placeholder {
+  background-color: white; border-radius: 15px; height: 180px;
+  display: flex; justify-content: center; align-items: center;
+  border: 2px dashed #ccc;
+}
+.logo-placeholder { color: #ccc; font-weight: bold; font-size: 2rem; }
+
+.input-stack { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+.input-group-vertical label {
+  display: flex; align-items: center; gap: 5px;
+  font-weight: bold; color: #005A8D;
+  margin-bottom: 4px; font-size: 0.9rem; text-transform: uppercase;
+}
+
+.input-row-split { display: flex; gap: 10px; }
+.input-row-split > div { flex: 1; }
+
+.big-input, .big-number-input {
+  width: 100%; padding: 10px; font-size: 1.2rem;
+  border: 1px solid #ccc; border-radius: 6px; height: 48px; box-sizing: border-box;
+}
+
+.big-number-input { text-align: right; font-weight: bold; color: #333; }
+.read-only { background-color: #e9ecef; color: #555; }
+
+.total-highlight label { color: #33c208; }
+.lcd-display {
+  background-color: #fff; border: 2px solid lch(69.25% 96.01 136.14 / 0.714); color: #10cc19bd;
+  font-family: 'Courier New', Courier, monospace; font-size: 2rem; font-weight: bold;
+  text-align: right; padding: 5px 10px; border-radius: 6px; height: 50px; line-height: 1.2;
+}
+
+.action-btn-register {
+  margin-top: auto; background-color: #005A8D; color: white;
+  font-size: 1.5rem; font-weight: bold; border: none; padding: 15px;
+  border-radius: 8px; cursor: pointer; text-transform: uppercase;
+  box-shadow: 0 4px 0 #004065; transition: transform 0.1s;
+  display: flex; justify-content: center; align-items: center;
+}
+.action-btn-register:active { transform: translateY(2px); box-shadow: 0 2px 0 #004065; }
+.action-btn-register:disabled { background-color: #ccc; box-shadow: none; cursor: not-allowed; }
+
+/* ================= PAINEL DIREITO ================= */
+.right-panel {
+  flex: 1; display: flex; flex-direction: column; background: white;
+  border-radius: 8px; box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+  position: relative; overflow: hidden;
+}
+
+.top-selectors-bar {
+  display: grid; grid-template-columns: 2fr 1.5fr 1.5fr; gap: 10px;
+  padding: 10px; background-color: #f8f9fa; border-bottom: 1px solid #ddd;
+}
+
+.sel-group label { font-size: 0.75rem; font-weight: bold; color: #666; display: block; margin-bottom: 2px; }
+.compact-select .react-select__control { min-height: 36px; height: 36px; font-size: 0.9rem; }
+
+.setup-alert {
+  background-color: #fff3cd; color: #856404; padding: 10px;
+  text-align: center; font-weight: bold; border-bottom: 1px solid #ffeeba;
+}
+
+.receipt-paper {
+  flex: 1; overflow-y: auto; padding: 0; background-color: #fff; position: relative;
+}
+
+.receipt-table { width: 100%; border-collapse: collapse; font-family: 'Consolas', 'Monaco', monospace; }
+
+.receipt-table th {
+  background-color: #e9ecef; position: sticky; top: 0;
+  text-transform: uppercase; font-size: 0.85rem; padding: 8px;
+  border-bottom: 2px solid #ccc; color: #444;
+}
+
+.receipt-table td { padding: 8px; border-bottom: 1px dashed #eee; font-size: 1rem; vertical-align: middle; }
+.receipt-table tr:nth-child(even) { background-color: #fdfdfd; }
+.desc-col { width: 50%; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.font-bold { font-weight: bold; }
+
+.trash-btn {
+  background: none; border: none; color: #dc3545;
+  font-weight: bold; cursor: pointer; font-size: 1.2rem;
+}
+
+.empty-state {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  color: #ccc; font-size: 1.5rem; font-weight: bold; text-align: center;
+}
+
+.total-footer-panel {
+  background-color: #f1f1f1; padding: 15px 20px; border-top: 2px solid #ccc;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.volumes-info { display: flex; flex-direction: column; font-size: 0.9rem; color: #555; }
+.grand-total-display { text-align: right; }
+.grand-total-display .label { display: block; font-size: 0.9rem; color: #333; margin-bottom: 0; }
+.grand-total-display .value { font-size: 2.5rem; font-weight: 800; color: #28a745; line-height: 1; }
+.grand-total-display .value.zero {
+color: #28a745; /* Cor Verde */
+}
+
+/* --- Footer Principal --- */
+.pdv-footer {
+  height: 60px;
+  background-color: #333;
+  display: flex;
+  gap: 1px;
+  padding: 5px;
+}
+
+.footer-button {
+  flex: 1;
+  background-color: #444;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-button:hover { background-color: #555; }
+.footer-button.confirm {
+  background-color: #28a745;
+  border-color: #1e7e34;
+  font-size: 1.1rem;
+  flex: 2;
+}
+.footer-button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Modais */
+.confirmation-modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6); z-index: 9999;
+  display: flex; justify-content: center; align-items: center;
+}
+.confirmation-modal-content { background: white; padding: 2rem; border-radius: 8px; text-align: center; }
+.confirmation-actions { margin-top: 1rem; display: flex; gap: 1rem; justify-content: center; }
+.modal-btn { padding: 0.8rem 1.5rem; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+.modal-btn.confirm { background: #005A8D; color: white; }
+.modal-btn.cancel { background: #ccc; }
+
+/* Indicador de Multiplicador (F7) */
+.multiplier-indicator {
+  background-color: #ffc107; /* Amarelo */
+  color: #212529; /* Texto escuro */
+  font-weight: 900;
+  font-size: 0.9rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: 8px;
+  border: 1px solid #d39e00;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: inline-block;
+  animation: popInBadge 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popInBadge {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ========================================================================== */
+/* TELA DE BLOQUEIO - ENVIANDO VENDA */
+/* ========================================================================== */
+.processing-overlay {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 99999; /* Fica acima de TUDO no sistema */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.processing-content {
+  background: #005A8D;
+  padding: 40px 60px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.processing-content .spin-icon-large {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: spin 1s linear infinite;
+}
+
+.processing-content h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.processing-content p {
+  margin: 10px 0 0 0;
+  font-size: 1.1rem;
+  color: #b3d7ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

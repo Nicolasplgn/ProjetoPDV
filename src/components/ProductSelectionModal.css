@@ -1,0 +1,187 @@
+/* Fundo Escuro */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Caixa Principal */
+.product-modal-container {
+  background-color: white;
+  width: 90%;
+  max-width: 1100px;
+  height: 85vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Cabeçalho */
+.product-modal-header {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+.product-modal-header h2 { margin: 0; font-size: 1.4rem; color: #333; }
+
+/* Grupo de Botões (Sync + Fechar) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.sync-products-btn {
+  background-color: #005A8D;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.sync-products-btn:hover:not(:disabled) { background-color: #004a74; }
+.sync-products-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.spin-icon { animation: spin 1s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.close-modal-btn {
+  background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #555;
+  display: flex; align-items: center;
+}
+.close-modal-btn:hover { color: #d00; }
+
+/* Barra de Busca */
+.product-search-bar-container { padding: 15px 20px; background-color: #f9f9f9; border-bottom: 1px solid #eee; flex-shrink: 0; }
+
+.search-input-wrapper { position: relative; width: 100%; }
+.search-input-wrapper .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999; }
+.search-input-wrapper input {
+  width: 100%; padding: 12px 12px 12px 45px;
+  font-size: 1.1rem; border: 1px solid #ddd; border-radius: 6px; outline: none; box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.search-input-wrapper input:focus { border-color: #005A8D; box-shadow: 0 0 0 3px rgba(0, 90, 141, 0.1); }
+
+/* Grid de Produtos */
+.products-grid-scroll { flex: 1; overflow-y: auto; padding: 20px; background-color: #f0f2f5; }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
+
+/* Card do Produto */
+.product-card {
+  background: white; border: 1px solid #ddd; border-radius: 8px; padding: 12px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 220px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: all 0.2s;
+}
+
+.product-card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-color: #005A8D; }
+.product-card.in-cart-highlight { border: 2px solid #005A8D; background-color: #f8fbff; }
+
+.card-header { text-align: center; margin-bottom: 10px; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+.product-name { font-weight: bold; color: #333; font-size: 0.95rem; line-height: 1.2; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2;   line-clamp: 2; /* <--- ADICIONE ESTA LINHA */
+;  -webkit-box-orient: vertical; }
+
+.card-body { font-size: 0.8rem; color: #666; display: flex; flex-direction: column; gap: 4px; text-align: center; margin-bottom: 10px; }
+.info-row { display: flex; justify-content: center; gap: 5px; align-items: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.label { color: #888; font-size: 0.75rem; }
+.value { font-weight: 600; color: #444; }
+.separator { color: #ccc; }
+.value.no-stock { color: #dc3545; }
+
+.price-display { margin-top: 8px; font-size: 1.1rem; font-weight: 800; color: #005A8D; }
+
+/* Ações do Card (Botão Adicionar ou Controle Qtd) */
+.card-actions { margin-top: auto; display: flex; justify-content: center; }
+
+.add-product-btn {
+  width: 100%; background-color: #fff; border: 1px solid #005A8D; color: #005A8D;
+  padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  transition: all 0.2s;
+}
+.add-product-btn:hover { background-color: #005A8D; color: white; }
+
+/* Controles de Quantidade (+ 1 -) */
+.qty-controls {
+  display: flex; align-items: center; gap: 10px; background: #fff;
+  border: 1px solid #ddd; padding: 2px 5px; border-radius: 20px;
+}
+.qty-btn {
+  width: 28px; height: 28px; border-radius: 50%; border: none;
+  background-color: #f0f0f0; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: #333; transition: background 0.2s;
+}
+.qty-btn:hover { background-color: #e0e0e0; }
+.qty-btn.plus { background-color: #e8f4fd; color: #005A8D; }
+.qty-btn.plus:hover { background-color: #d1e9fc; }
+.qty-btn.minus { background-color: #fff0f0; color: #dc3545; }
+.qty-btn.minus:hover { background-color: #ffe0e0; }
+
+.qty-value { font-weight: bold; font-size: 1rem; min-width: 20px; text-align: center; }
+
+.no-results { text-align: center; margin-top: 50px; color: #777; font-size: 1.1rem; }
+
+/* --- NOVO RODAPÉ (FOOTER) --- */
+.product-modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.footer-info {
+    font-size: 1rem;
+    color: #555;
+}
+
+.confirm-selection-btn {
+    background-color: #28a745; /* Verde Sucesso */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.confirm-selection-btn:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+.confirm-selection-btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

@@ -1,0 +1,109 @@
+/* Fundo escuro atrás do modal */
+.checkout-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro */
+  z-index: 9999; /* Garante que fique acima de tudo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+/* Caixa Principal do Modal */
+.checkout-modal-container {
+  background-color: #ffffff; /* FUNDO BRANCO OBRIGATÓRIO */
+  width: 90%;
+  max-width: 420px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: zoomIn 0.2s ease-out;
+}
+
+/* Header */
+.checkout-modal-header {
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-modal-header h3 { margin: 0; font-size: 1.2rem; color: #333; }
+
+.checkout-close-btn {
+  background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666;
+  display: flex; align-items: center;
+}
+.checkout-close-btn:hover { color: #dc3545; }
+
+/* Display de Preço */
+.checkout-total-display {
+  background-color: #005A8D;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.total-label { font-size: 0.9rem; text-transform: uppercase; opacity: 0.9; }
+.total-value { font-size: 2.2rem; font-weight: 800; }
+
+/* Inputs */
+.checkout-modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: white; /* Garante fundo branco nos inputs */
+}
+
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label { font-size: 0.9rem; font-weight: 600; color: #555; }
+
+.checkout-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #fff;
+}
+.checkout-input:focus { outline: none; border-color: #005A8D; }
+
+/* Rodapé */
+.checkout-modal-footer {
+  padding: 15px 20px;
+  background-color: white;
+  border-top: 1px solid #eee;
+}
+
+.confirm-sale-btn {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s;
+}
+
+.confirm-sale-btn:hover { background-color: #218838; }
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
